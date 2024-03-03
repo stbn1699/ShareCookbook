@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Josefin Slab';
+    font-style: normal;
+    font-weight: 500;
+    src: url('Fonts/JosefinSlab.woff2') format('woff2');
+}
+.josefin-slab{
+    font-family: 'Josefin Slab', serif;
+}

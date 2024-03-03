@@ -1,33 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-
-function LoginPage() {
-    // Votre code de connexion ici
-    return <h1>Login Page</h1>;
-}
-
-function MainPage() {
-    // Votre code de page principale ici
-    return (
-        <div>
-            <h1>Main Page</h1>
-            <BottomBar/>
-        </div>
-    );
-}
-
-function BottomBar() {
-    // Votre code de barre de navigation inférieure ici
-    return <h2>Bottom Bar</h2>;
-}
+import Login from "./Components/Login";
+import MainPage from "./Components/MainPage";
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/" element={<MainPage/>}/>
+                <Route path="/" element={<Login/>}/>
+                <Route path="/MainPage" element={<MainPage/>}/>
             </Routes>
         </Router>
     );

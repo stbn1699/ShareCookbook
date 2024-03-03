@@ -1,0 +1,15 @@
+.application-page{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.application-page-content{
+    background: #f2e8cf;
+    height: 90vh;
+}
+.application-bottomBar{
+    background: #6a994e;
+    height: 10vh;
+}
