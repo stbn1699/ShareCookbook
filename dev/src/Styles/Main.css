@@ -5,14 +5,19 @@
     width: 100vw;
 }
 .application-header{
+    z-index: 1;
+    box-shadow: 0 5px 13px -3px rgba(0,0,0,0.5);
     background: #6a994e;
     height: 7vh;
 }
 .application-page-content{
+    overflow: scroll;
     background: #f2e8cf;
     height: 83vh;
 }
 .application-bottomBar{
+    z-index: 1;
+    box-shadow: 0 -5px 13px -3px rgba(0,0,0,0.5);
     background: #6a994e;
     height: 10vh;
 }

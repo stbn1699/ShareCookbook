@@ -4,6 +4,10 @@ button{
     cursor: pointer;
 }
 .button-link{
+    color: #f2e8cf;
+}
+.button-link-active{
+    color: #96907f;
 }
 .bottom-bar{
     width: 100vw;

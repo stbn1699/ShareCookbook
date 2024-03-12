@@ -1,39 +1,68 @@
 import {Link} from "react-router-dom";
 import '../Styles/Main.css';
 import '../Styles/Icons.css';
-import { BsHouse, BsSearch, BsFillPlusCircleFill, BsPersonFill, BsFillGearFill } from "react-icons/bs";
+import {BsFillGearFill, BsHouseFill, BsPersonFill, BsPlusCircleFill, BsSearch} from "react-icons/bs";
 
-function BottomBar() {
-    return (
-            <div className="bottom-bar">
+function BottomBar(props: { activePage: string }) {
 
-            <Link to="/MainPage" className="button-link">
+    let home = "#f2e8cf";
+    let search = "#f2e8cf";
+    let plus = "#f2e8cf";
+    let person = "#f2e8cf";
+    let gear = "#f2e8cf";
+
+
+    switch (props.activePage) {
+        case "0":
+            break;
+        case "1":
+            home = "#d3cab4";
+            break;
+        case "2":
+            search = "#d3cab4";
+            break;
+        case "3":
+            plus = "#d3cab4";
+            break;
+        case "4":
+            person = "#d3cab4";
+            break;
+        case "5":
+            gear = "#d3cab4";
+            break;
+        default:
+            break;
+    }
+
+    return (<div className="bottom-bar">
+
+            <Link to="/MainPage">
                 <button>
-                    <BsHouse style={{ fontSize: '35px', color: "#f2e8cf" }}/>
+                    <BsHouseFill style={{fontSize: '35px', color: `${home}`}}/>
                 </button>
             </Link>
 
-            <Link to="/MainPage" className="button-link">
+            <Link to="/MainPage">
                 <button>
-                    <BsSearch style={{ fontSize: '35px', color: "#f2e8cf" }}/>
+                    <BsSearch style={{fontSize: '35px', color: `${search}`}}/>
                 </button>
             </Link>
 
-            <Link to="/MainPage" className="button-link">
+            <Link to="/MainPage">
                 <button>
-                    <BsFillPlusCircleFill style={{ fontSize: '35px', color: "#f2e8cf" }}/>
+                    <BsPlusCircleFill style={{fontSize: '35px', color: `${plus}`}}/>
                 </button>
             </Link>
 
-            <Link to="/MainPage" className="button-link">
+            <Link to="/MainPage">
                 <button>
-                    <BsPersonFill style={{ fontSize: '35px', color: "#f2e8cf" }}/>
+                    <BsPersonFill style={{fontSize: '35px', color: `${person}`}}/>
                 </button>
             </Link>
 
-            <Link to="/MainPage" className="button-link">
+            <Link to="/MainPage">
                 <button>
-                    <BsFillGearFill style={{ fontSize: '35px', color: "#f2e8cf" }}/>
+                    <BsFillGearFill style={{fontSize: '35px', color: `${gear}`}}/>
                 </button>
             </Link>
 

@@ -1,21 +1,21 @@
 import "../Styles/ReccipePreview.css";
 import '../Styles/Main.css';
 
-function RecipePreview(props: { fond: string; titre: string; temps: string; personnes: string; account: string;}){
+function RecipePreview(props: { fond: string; titre: string; temps: number; personnes: number;}){
     return(
         <div className="recipe-box">
             <div className="recipe-preview">
                 <div className="image-fond">
-                    <img src="../img/recettes/recette-01.jpg" alt="test"/>
+
                 </div>
-                {/*<div className="fond-gradient">
-                    <div className="josefin-slab recipe-poster">{props.account}</div>
-                    <div className="josefin-slab recipe-title">{props.titre}</div>
-                    <div className="josefin-slab recipe-info">
+                <div className="fond-gradient">
+                    <div className="josefin-slab recipe-column recipe-info">
                         - {props.temps} min
+                        <br/>
                         - {props.personnes} personnes
                     </div>
-                </div>*/}
+                    <div className="josefin-slab recipe-column recipe-title">{props.titre}</div>
+                </div>
             </div>
         </div>
     )
