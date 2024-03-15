@@ -18,7 +18,7 @@ function Login(){
                        id="password"/>
             </div>
             <div className="buttons-container">
-                <Link to="/MainPage">
+                <Link to="/SignUp">
                     <button className="buttons signup josefin-slab">Sign Up</button>
                 </Link>
                 <Link to="/MainPage">
