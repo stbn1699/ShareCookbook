@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import '../Styles/Login.css';
-import '../Styles/Fonts.css'
+import '../Styles/Fonts.css';
 
 function SignUp(){
+
+    const navigate = useNavigate();
+
     const handleClick = async () => {
         console.log('good1')
         const username: string = (document.getElementById('username') as HTMLInputElement).value;
@@ -12,9 +16,8 @@ function SignUp(){
         const errorDiv = document.getElementById('error');
 
         if (password === confirmPassword){
-            console.log('good2')
             const response = await fetch(
-                `${process.env.API_URL}/user/check?username=${username}&email=${email}`
+                `http://localhost:3001/user/check?username=${username}&email=${email}`
             );
             const data = await response.json();
 
@@ -24,18 +27,25 @@ function SignUp(){
                     errorDiv.innerText = 'cet email ou username existe déjà!';
                 }
             } else if (!data.exists) {
-                console.log('good3')
                 const newUser = { username, email, fullName, password };
-                const addUserResponse = await fetch(`${process.env.API_URL}/user/add`, {
+                const addUserResponse = await fetch(`http://localhost:3001/user/add`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(newUser),
                 });
-                console.log(addUserResponse);
-                const addUserResult = await addUserResponse.json();
-                console.log(addUserResult);
+
+                if (addUserResponse.ok) {
+                    const addUserResult = await addUserResponse.json();
+                    console.log(addUserResult);
+                    navigate('/');
+                } else {
+                    console.log('error while contacting the server!');
+                    if (errorDiv){
+                        errorDiv.innerText = 'erreur inconnue';
+                    }
+                }
             } else {
                 console.log('error while contacting the server!');
                 if (errorDiv){

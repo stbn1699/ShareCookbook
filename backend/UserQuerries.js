@@ -8,34 +8,38 @@ const pool = new Pool({
 })
 
 const checkUser = (request, response) => {
-    const { username, email } = request.query;
+    console.log("checking user...")
+
+    const {username, email} = request.query;
     const query = 'SELECT * FROM accounts WHERE username = $1 OR email = $2';
 
     pool.query(query, [username, email], (error, results) => {
         if (error) {
             console.log(error);
-            response.status(500).send('An error occurred while checking the user');
+            response.status(500).json({error: 'An error occurred while checking the user'});
         } else {
             if (results.rows.length > 0) {
-                response.json({ exists: true });
+                console.log("already exists")
+                response.status(200).json({exists: true});
             } else {
-                response.json({ exists: false });
+                console.log("does not exist")
+                response.status(200).json({exists: false});
             }
         }
     });
 }
 
 const addUser = (request, response) => {
-    const { username, email, password_hash, full_name } = request.body;
+    const {username, email, password_hash, full_name} = request.body;
     console.log(request.body)
     const query = 'INSERT INTO accounts (username, email, password_hash, full_name) VALUES ($1, $2, $3, $4)';
 
     pool.query(query, [username, email, password_hash, full_name], (error, results) => {
         if (error) {
             console.log(error);
-            response.status(500).send('An error occurred while adding the user');
+            response.status(500).json({error: 'An error occurred while checking the user'});
         } else {
-            response.status(201).send(`User added`);
+            response.status(201).json({sucess: `User added`});
         }
     });
 }
