@@ -24,6 +24,7 @@ app.get('/publications/getAll', db.getPublications)
 // user querries
 app.get('/user/check', userQuerries.checkUser)
 app.post('/user/add', userQuerries.addUser)
+app.post('/user/login', userQuerries.loginUser)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
