@@ -1,7 +1,7 @@
 import "../Styles/ReccipePreview.css";
 import '../Styles/Main.css';
 
-function RecipePreview(props: { fond: string; titre: string; temps: number; personnes: number;}){
+function RecipePreview(props: { fond: string; titre: string; temps: number; personnes: number; likes_count: number;}){
     return(
         <div className="recipe-box">
             <div className="recipe-preview">
@@ -13,6 +13,8 @@ function RecipePreview(props: { fond: string; titre: string; temps: number; pers
                         - {props.temps} min
                         <br/>
                         - {props.personnes} personnes
+                        <br/>
+                        - {props.likes_count} likes
                     </div>
                     <div className="josefin-slab recipe-column recipe-title">{props.titre}</div>
                 </div>
