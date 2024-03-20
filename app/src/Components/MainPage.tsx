@@ -24,7 +24,7 @@ export function MainPage() {
             </div>
             <div className="application-page-content">
                 {publications.map((publication: any) => (
-                    <Link to="/Recipe" key={publication.id}>
+                    <Link to={`/Recipe/${publication.uuid}`}>
                         <RecipePreview fond="01"
                                        titre={publication.title}
                                        temps={publication.info_1}

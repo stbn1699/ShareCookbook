@@ -19,12 +19,15 @@ app.get('/', (request, response) => {
 })
 
 //publications querries
-app.get('/publications/getAll', db.getPublications)
+app.get('/publications/getAll', db.getPublications);
+app.get('/publications/getPublicationById/:id', db.getPublicationById);
 
 // user querries
-app.get('/user/check', userQuerries.checkUser)
-app.post('/user/add', userQuerries.addUser)
-app.post('/user/login', userQuerries.loginUser)
+app.get('/user/check', userQuerries.checkUser);
+app.post('/user/add', userQuerries.addUser);
+app.post('/user/login', userQuerries.loginUser);
+app.post('/user/toggleLike', userQuerries.toggleLike);
+app.post('/user/haveUserLiked', userQuerries.userLikedPublication);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

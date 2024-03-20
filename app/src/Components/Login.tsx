@@ -1,7 +1,18 @@
 import {Link, useNavigate} from 'react-router-dom';
+import '../Styles/Login.css';
+import {useEffect, useState} from "react";
 
 function Login() {
     const navigate = useNavigate();
+    const [keepLogin, setKeepLogin] = useState(false);
+
+
+    useEffect(() => {
+        const userUUID = localStorage.getItem('userUUID');
+        if (userUUID) {
+            navigate('/MainPage');
+        }
+    }, []);
 
     const handleLogin = async () => {
         const username: string = (document.getElementById('Login') as HTMLInputElement).value;
@@ -25,6 +36,12 @@ function Login() {
             });
 
             if (loginResponse.ok) {
+                const { uuid } = await loginResponse.json();
+                if(keepLogin){
+                    localStorage.setItem('userUUID', uuid);
+                }else{
+                    sessionStorage.setItem('userUUID', uuid);
+                }
                 navigate('/MainPage');
             } else {
                 if (errorDiv) {
@@ -47,6 +64,9 @@ function Login() {
                        className="input josefin-slab"
                        placeholder="Password"
                        id="password"/>
+                <br/>
+                <input type="checkbox" id="keepLogin" checked={keepLogin} onChange={() => setKeepLogin(!keepLogin)}/>
+                <label htmlFor="keepLogin">Se rappeler de moi</label>
             </div>
             <div id="error"></div>
             <div className="buttons-container">

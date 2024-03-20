@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../Styles/Login.css';
+import '../Styles/SignUp.css';
 import '../Styles/Fonts.css';
 
 function SignUp(){
@@ -60,37 +60,38 @@ function SignUp(){
     }
 
     return (
-        <div className="login">
-            <h1 className="josefin-slab title">ShareCookBook</h1>
-            <div className="login-inputs">
+        <div className="SignUp-signup">
+            <h1 className="josefin-slab SignUp-title">ShareCookBook</h1>
+            <div className="SignUp-inputs">
                 <input type="text"
-                       className="input josefin-slab"
+                       className="SignUp-input josefin-slab"
                        placeholder="Username"
                        id="username"/>
                 <br/>
                 <input type="email"
-                       className="input josefin-slab"
+                       className="SignUp-input josefin-slab"
                        placeholder="Email"
                        id="email"/>
                 <br/>
                 <input type="text"
-                       className="input josefin-slab"
+                       className="SignUp-input josefin-slab"
                        placeholder="Full name"
                        id="fullName"/>
                 <br/>
                 <input type="password"
-                       className="input josefin-slab"
+                       className="SignUp-input josefin-slab"
                        placeholder="Password"
                        id="password"/>
                 <br/>
                 <input type="password"
-                       className="input josefin-slab"
+                       className="SignUp-input josefin-slab"
                        placeholder="Confirm Password"
                        id="confirmPassword"/>
             </div>
             <div id="error"></div>
-            <div className="buttons-container">
-                <button className="buttons signup josefin-slab" onClick={handleClick}>Create Account</button>
+            <div className="SignUp-buttons-container">
+                <button className="SignUp-buttons SignUp-goback josefin-slab" onClick={() => navigate(-1)}>Back</button>
+                <button className="SignUp-buttons SignUp-signup-btn josefin-slab" onClick={handleClick}>Create Account</button>
             </div>
         </div>
     );

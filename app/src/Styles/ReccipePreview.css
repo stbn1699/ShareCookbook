@@ -1,10 +1,10 @@
-.recipe-box{
+.reciprev-box{
     display: flex;
     flex-direction: column;
-    margin: 3vh 5vw 13vh 5vw;
+    margin: 3vh 5vw 11vh 5vw;
     color: black;
 }
-.recipe-preview{
+.reciprev-preview{
     position: relative;
 }
 .image-fond{
@@ -13,7 +13,7 @@
     height: 10vh;
     width: 90vw;
     border-radius: 20px 30px 30px 20px;
-    background-color: #bc4749;
+    background-color: #927fbd;
     box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
 }
 .fond-gradient{
@@ -25,19 +25,19 @@
     background: linear-gradient(90deg, rgba(242, 232, 207, 0.15) 24%, #A7C957 38%);
     display: flex;
 }
-.recipe-title, .recipe-info{
+.reciprev-title, .reciprev-info{
     margin: 0 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
 }
-.recipe-title{
+.reciprev-title{
     width: 65vw;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
 }
-.recipe-info{
+.reciprev-info{
     width: 25vw;
 }

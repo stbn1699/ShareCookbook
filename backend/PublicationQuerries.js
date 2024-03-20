@@ -25,6 +25,26 @@ const getPublications = (request, response) => {
     });
 }
 
+const getPublicationById = (request, response) => {
+    const id = request.params.id;
+    const query = `
+        SELECT publications.*,
+               (SELECT COUNT(*)
+                FROM publication_likes
+                WHERE publication_id = publications.uuid) AS likes_count
+        FROM publications WHERE uuid = $1`;
+
+    pool.query(query, [id], (error, results) => {
+        if (error) {
+            console.log(error);
+            response.status(500).json({error: 'An error occurred while getting the publication'});
+        } else {
+            response.status(200).json(results.rows[0]);
+        }
+    });
+}
+
 module.exports = {
     getPublications,
+    getPublicationById,
 }
