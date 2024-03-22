@@ -48,7 +48,7 @@ function BottomBar(props: { activePage: string }) {
                 </button>
             </Link>
 
-            <Link to="/MainPage">
+            <Link to="/NewRecipe">
                 <button>
                     <BsPlusCircleFill style={{fontSize: '35px', color: `${plus}`}}/>
                 </button>

@@ -9,21 +9,27 @@ function Header(props: { headerStyle: string }) {
     switch (props.headerStyle) {
         case "recipe":
             return (
-                <div>
+                <div className="bottom-bar-box">
                     <button className="goBack-button" onClick={() => {navigate(-1);}}>
                         <BsArrowLeftCircleFill style={{fontSize: '4vh', color: '#386641'}}/>
                     </button>
                 </div>
             );
+        case "NewRecipe":
+            return (
+                <div className="bottom-bar-box">
+                    <div className="header-title josefin-slab">NewRecipe</div>
+                </div>
+            );
         case "none":
             return (
-                <div>
+                <div className="bottom-bar-box">
 
                 </div>
             );
         default:
             return (
-                <div>
+                <div className="bottom-bar-box">
 
                 </div>
             );

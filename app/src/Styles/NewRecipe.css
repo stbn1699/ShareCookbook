@@ -1,0 +1,120 @@
+.NewRecipe-section .NewRecipe-title{
+    width: 90vw;
+    height: 5vh;
+    background-color: #A7C957;
+    margin: 3vh 5vw;
+    font-weight: bold;
+    font-size: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.NewRecipe-infos-input-box{
+    width: 90vw;
+    margin: 0 5vw;
+    display: flex;
+}
+.NewRecipe-infos-input-labels, .NewRecipe-infos-input-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    >*{
+        display: flex;
+        align-items: center;
+        height: 3vh;
+        justify-content: center;
+        margin: 0.5vh 0;
+    }
+}
+.NewRecipe-infos-input-labels{
+    font-weight: bold;
+}
+input{
+    height: 3vh;
+    background: #A7C957;
+    border: 1px solid #6A994E;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-weight: bold;
+    width: 40vw;
+}
+.NewRecipe-ingredient-input{
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.NewRecipe-ingredient-preview{
+    font-weight: bold;
+    display: flex;
+    margin: 0 1vw;
+}
+.NewRecipe-add-button{
+    height: 3vh;
+    background: #6A994E;
+    border: 1px solid #A7C957;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 0;
+}
+.NewRecipe-suppr-button{
+    height: 3vh;
+    border: 1px solid #A7C957;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 0;
+    background-color: darkred;
+    color: #f2e8cf;
+}
+.NewRecipe-ingredients-input-box{
+    width: 90vw;
+    margin: 0 5vw;
+    display: flex;
+    justify-content: center;
+}
+.NewRecipe-ingredient-previev-text{
+    height: 3vh;
+    background: #A7C957;
+    border: 1px solid #6A994E;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2vw;
+}
+.NewRecipe-ingredients-preview-box{
+    width: 80vw;
+    margin: 5vw 10vw;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.NewRecipe-content-textarea-box{
+    width: 90vw;
+    margin: 0 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.NewRecipe-content-textarea{
+    width: 90vw;
+    margin: 0 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 20vh;
+    border: 2px solid #6A994E;
+    border-radius: 10px;
+}

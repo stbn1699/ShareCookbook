@@ -46,7 +46,7 @@
 .recipe-content li, .recipe-content p{
     font-size: 1.2em;
 }
-.application-page-content {
+.application-page-content-recipe {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

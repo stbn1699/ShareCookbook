@@ -66,7 +66,7 @@ function Recipe() {
             <div className="application-header">
                 <Header headerStyle="recipe"/>
             </div>
-            <div className="application-page-content">
+            <div className="application-page-content application-page-content-recipe">
                 <div className="recipe-header">
                     <div className="recipe-title josefin-slab">
                         {publication && publication.title}
