@@ -8,6 +8,7 @@ function Login() {
 
 
     useEffect(() => {
+        sessionStorage.setItem('apiUrl', 'http://localhost:3001');
         const userUUID = localStorage.getItem('userUUID');
         if (userUUID) {
             navigate('/MainPage');
@@ -19,7 +20,7 @@ function Login() {
         const password: string = (document.getElementById('password') as HTMLInputElement).value;
         const errorDiv = document.getElementById('error');
 
-        const response = await fetch(`http://localhost:3001/user/check?username=${username}`);
+        const response = await fetch(`${sessionStorage.getItem('apiUrl')}/user/check?username=${username}`);
         const data = await response.json();
 
         if (!data.exists) {
@@ -27,7 +28,7 @@ function Login() {
                 errorDiv.innerText = 'Nom d\'utilisateur ou email inconnu';
             }
         } else {
-            const loginResponse = await fetch(`http://localhost:3001/user/login`, {
+            const loginResponse = await fetch(`${sessionStorage.getItem('apiUrl')}/user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ function SignUp(){
 
         if (password === confirmPassword){
             const response = await fetch(
-                `http://localhost:3001/user/check?username=${username}&email=${email}`
+                `${sessionStorage.getItem('apiUrl')}/user/check?username=${username}&email=${email}`
             );
             const data = await response.json();
 
@@ -28,7 +28,7 @@ function SignUp(){
                 }
             } else if (!data.exists) {
                 const newUser = { username, email, fullName, password };
-                const addUserResponse = await fetch(`http://localhost:3001/user/add`, {
+                const addUserResponse = await fetch(`${sessionStorage.getItem('apiUrl')}/user/add`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

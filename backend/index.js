@@ -6,7 +6,13 @@ const port = 3001
 const db = require('./PublicationQuerries')
 const userQuerries = require('./UserQuerries')
 
-app.use(cors())
+const corsOptions = {
+    origin: ['http://sharecookbook.ebasson.fr', 'http://localhost:3000'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({

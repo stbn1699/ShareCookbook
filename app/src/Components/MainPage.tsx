@@ -10,7 +10,8 @@ export function MainPage() {
     const [publications, setPublications] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/publications/getAll')
+        console.log(`fetching publications from : ${sessionStorage.getItem('apiUrl')}/publications/getAll`)
+        fetch(`${sessionStorage.getItem('apiUrl')}/publications/getAll`)
             .then(response => response.json())
             .then(data => setPublications(data))
             .then(data => console.log("publications : " + publications))

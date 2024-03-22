@@ -19,7 +19,7 @@ function Recipe() {
 
     const toggleLike = async () => {
         console.log('toggleLike')
-        const response = await fetch('http://localhost:3001/user/toggleLike', {
+        const response = await fetch(`${sessionStorage.getItem('apiUrl')}/user/toggleLike`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function Recipe() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:3001/publications/getPublicationById/${uuid}`)
+        fetch(`${sessionStorage.getItem('apiUrl')}/publications/getPublicationById/${uuid}`)
             .then(response => response.json())
             .then(data => {
                 if (data.likes && data.likes[0] !== null) {
