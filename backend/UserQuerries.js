@@ -1,11 +1,11 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
-    host: 'localhost',
+    host: '91.108.113.155',
     database: 'postgres',
-    password: 'root',
     port: 5432,
 })
+
 
 const checkUser = (request, response) => {
     console.log(`checking if ${request.query.username} or ${request.query.email} exists...`)
