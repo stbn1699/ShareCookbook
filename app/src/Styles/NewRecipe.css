@@ -118,3 +118,30 @@ input{
     border: 2px solid #6A994E;
     border-radius: 10px;
 }
+.recipe-content{
+    font-size-adjust: 2;
+    width: 90vw;
+    margin: 0 5vw;
+    height: 100%;
+    overflow: scroll;
+}
+.recipe-content h1{
+    text-align: center;
+    font-size: 2.5em;
+}
+.recipe-content p{
+    text-align: justify;
+    font-size: 1.2em;
+}
+.recipe-content li, .recipe-content p{
+    font-size: 1.2em;
+}
+.application-page-content-recipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}

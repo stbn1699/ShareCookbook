@@ -45,7 +45,38 @@ const getPublicationById = (request, response) => {
     });
 }
 
+const addRecipe = (request, response) => {
+    const { title, uuid, info_1, info_2, content } = request.body;
+
+    const getUsernameQuery = 'SELECT username FROM accounts WHERE uuid = $1';
+
+    pool.query(getUsernameQuery, [uuid], (error, results) => {
+        if (results.rows.length > 0) {
+            const author = results.rows[0].username;
+
+            const addRecipeQuery = `
+                INSERT INTO publications (title, author, info_1, info_2, content)
+                VALUES ($1, $2, $3, $4, $5)
+                RETURNING uuid
+            `;
+
+            pool.query(addRecipeQuery, [title, author, info_1, info_2, content], (error, results) => {
+                if (error) {
+                    console.log(error);
+                    response.status(500).json({error: 'An error occurred while adding the recipe'});
+                } else {
+                    const publicationUuid = results.rows[0].uuid;
+                    response.status(200).json({success: true, message: 'Recipe added', uuid: publicationUuid});
+                }
+            });
+        } else {
+            response.status(404).json({error: 'User not found'});
+        }
+    });
+}
+
 module.exports = {
     getPublications,
     getPublicationById,
+    addRecipe,
 }

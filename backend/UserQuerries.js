@@ -121,10 +121,8 @@ const userLikedPublication = (request, response) => {
             response.status(500).json({error: 'An error occurred while checking the like'});
         } else {
             if (results.rows.length > 0) {
-                // Like exists
                 response.status(200).json({liked: true});
             } else {
-                // Like does not exist
                 response.status(200).json({liked: false});
             }
         }
@@ -136,5 +134,5 @@ module.exports = {
     addUser,
     loginUser,
     toggleLike,
-    userLikedPublication, // add this line
+    userLikedPublication,
 }

@@ -27,6 +27,7 @@ app.get('/', (request, response) => {
 //publications querries
 app.get('/publications/getAll', db.getPublications);
 app.get('/publications/getPublicationById/:id', db.getPublicationById);
+app.post('/publications/add', db.addRecipe);
 
 // user querries
 app.get('/user/check', userQuerries.checkUser);
