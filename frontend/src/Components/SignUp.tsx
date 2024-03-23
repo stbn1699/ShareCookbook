@@ -65,33 +65,33 @@ function SignUp(){
             <div className="SignUp-inputs">
                 <input type="text"
                        className="SignUp-input josefin-slab"
-                       placeholder="Username"
+                       placeholder="Nom d'utilisateur"
                        id="username"/>
                 <br/>
                 <input type="email"
                        className="SignUp-input josefin-slab"
-                       placeholder="Email"
+                       placeholder="E-mail"
                        id="email"/>
                 <br/>
                 <input type="text"
                        className="SignUp-input josefin-slab"
-                       placeholder="Full name"
+                       placeholder="Nom"
                        id="fullName"/>
                 <br/>
                 <input type="password"
                        className="SignUp-input josefin-slab"
-                       placeholder="Password"
+                       placeholder="Mot de passe"
                        id="password"/>
                 <br/>
                 <input type="password"
                        className="SignUp-input josefin-slab"
-                       placeholder="Confirm Password"
+                       placeholder="Confirmer mot de passe"
                        id="confirmPassword"/>
             </div>
             <div id="error"></div>
             <div className="SignUp-buttons-container">
-                <button className="SignUp-buttons SignUp-goback josefin-slab" onClick={() => navigate(-1)}>Back</button>
-                <button className="SignUp-buttons SignUp-signup-btn josefin-slab" onClick={handleClick}>Create Account</button>
+                <button className="SignUp-buttons SignUp-goback josefin-slab" onClick={() => navigate(-1)}>Retour</button>
+                <button className="SignUp-buttons SignUp-signup-btn josefin-slab" onClick={handleClick}>Valider</button>
             </div>
         </div>
     );

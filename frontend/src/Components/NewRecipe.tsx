@@ -6,7 +6,7 @@ import "../Styles/NewRecipe.css";
 import {createMuiTheme, Tab, Tabs, ThemeProvider} from "@material-ui/core";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 function NewRecipe() {
@@ -19,6 +19,7 @@ function NewRecipe() {
     const [tabValue, setTabValue] = useState(0);
     const [recipePreview, setRecipePreview] = useState("");
     const [content, setContent] = useState("");
+    const inputRef = React.useRef<HTMLInputElement>(null);
 
     const navigate = useNavigate();
 
@@ -53,6 +54,7 @@ function NewRecipe() {
             setIngredients([...ingredients, inputValue]);
         }
         setInputValue("");
+        inputRef.current?.focus();
     };
 
     const removeIngredient = (index: number) => {
@@ -150,7 +152,7 @@ function NewRecipe() {
                             <div className="NewRecipe-title">Liste des ingrédients</div>
                             <div className="NewRecipe-ingredients-input-box">
                                 <input className="NewRecipe-ingredient-input" type="text" value={inputValue}
-                                       onChange={addIngredientValueChange}/>
+                                       onChange={addIngredientValueChange} ref={inputRef}/>
                                 <button className="NewRecipe-add-button" onClick={addIngredient}><BsPlus/></button>
                             </div>
                             <div className="NewRecipe-ingredients-preview-box">
@@ -172,14 +174,16 @@ function NewRecipe() {
                                           onChange={contentChange}></textarea>
                             </div>
                         </div>
-                        <button onClick={resetRecipe}>Reset</button>
-                        <button onClick={() => addRecipe()}>Valider</button>
+                        <div className="NewRecipe-buttons-container">
+                            <button className="buttons signup josefin-slab" onClick={resetRecipe}>Supprimer</button>
+                            <button className="buttons signin josefin-slab" onClick={addRecipe}>Valider</button>
+                        </div>
                     </div>
                 )}
                 {tabValue === 1 && (
                     <div>
-                    <div className="recipe-header">
-                            <div className="recipe-title josefin-slab">
+                        <div className="recipe-header">
+                        <div className="recipe-title josefin-slab">
                                 {title || "∅"}
                             </div>
                             <div className="recipe-infos josefin-slab">

@@ -10,15 +10,31 @@ function Header(props: { headerStyle: string }) {
         case "recipe":
             return (
                 <div className="bottom-bar-box">
-                    <button className="goBack-button" onClick={() => {navigate('/MainPage');}}>
+                    <button className="goBack-button" onClick={() => {
+                        navigate('/MainPage');
+                    }}>
                         <BsArrowLeftCircleFill style={{fontSize: '4vh', color: '#386641'}}/>
                     </button>
+                    <div className="header-title josefin-slab">Recette</div>
+                    <div className="header-cale"></div>
                 </div>
             );
         case "NewRecipe":
             return (
                 <div className="bottom-bar-box">
-                    <div className="header-title josefin-slab">NewRecipe</div>
+                    <div className="header-title josefin-slab">Nouvelle Recette</div>
+                </div>
+            );
+        case "Account":
+            return (
+                <div className="bottom-bar-box">
+                    <div className="header-title josefin-slab">Mon profil</div>
+                </div>
+            );
+        case "Parametres":
+            return (
+                <div className="bottom-bar-box">
+                    <div className="header-title josefin-slab">Paramètres</div>
                 </div>
             );
         case "none":

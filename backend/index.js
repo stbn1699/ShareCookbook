@@ -25,14 +25,15 @@ app.get('/', (request, response) => {
 })
 
 //publications querries
+app.post('/publications/add', db.addRecipe);
 app.get('/publications/getAll', db.getPublications);
 app.get('/publications/getPublicationById/:id', db.getPublicationById);
-app.post('/publications/add', db.addRecipe);
 
 // user querries
 app.get('/user/check', userQuerries.checkUser);
 app.post('/user/add', userQuerries.addUser);
 app.post('/user/login', userQuerries.loginUser);
+app.get('/user/getById/:uuid', userQuerries.getUserById);
 app.post('/user/toggleLike', userQuerries.toggleLike);
 app.post('/user/haveUserLiked', userQuerries.userLikedPublication);
 

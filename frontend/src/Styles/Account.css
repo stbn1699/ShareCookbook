@@ -1,0 +1,17 @@
+.input-info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25vh;
+    width: 100vw;
+    height: 80vh;
+}
+.input-info {
+    margin-top : 1.25vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 80vw;
+    font-weight: bold;
+}

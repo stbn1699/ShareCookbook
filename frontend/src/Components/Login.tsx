@@ -8,7 +8,7 @@ function Login() {
 
 
     useEffect(() => {
-        sessionStorage.setItem('apiUrl', 'http://91.108.113.155:3001');
+        sessionStorage.setItem('apiUrl', 'http://localhost:3001');
         const userUUID = localStorage.getItem('userUUID');
         if (userUUID) {
             navigate('/MainPage');
@@ -63,18 +63,21 @@ function Login() {
                 <br/>
                 <input type="password"
                        className="input josefin-slab"
-                       placeholder="Password"
+                       placeholder="Mot de passe"
                        id="password"/>
                 <br/>
-                <input type="checkbox" id="keepLogin" checked={keepLogin} onChange={() => setKeepLogin(!keepLogin)}/>
-                <label htmlFor="keepLogin">Se rappeler de moi</label>
+                <div className="Login-rememberMe-box">
+                    <label className="Login-rememberMe-label josefin-slab" htmlFor="keepLogin">Se rappeler de moi</label>
+                    <input className="Login-rememberMe-input" type="checkbox" id="keepLogin" checked={keepLogin}
+                           onChange={() => setKeepLogin(!keepLogin)}/>
+                </div>
             </div>
             <div id="error"></div>
             <div className="buttons-container">
                 <Link to="/SignUp">
-                    <button className="buttons signup josefin-slab">Sign Up</button>
+                    <button className="buttons signup josefin-slab">Création</button>
                 </Link>
-                <button className="buttons signin josefin-slab" onClick={handleLogin}>Sign In</button>
+                <button className="buttons signin josefin-slab" onClick={handleLogin}>Connexion</button>
             </div>
         </div>
     );

@@ -54,13 +54,13 @@ function BottomBar(props: { activePage: string }) {
                 </button>
             </Link>
 
-            <Link to="/MainPage">
+            <Link to="/Account">
                 <button>
                     <BsPersonFill style={{fontSize: '35px', color: `${person}`}}/>
                 </button>
             </Link>
 
-            <Link to="/MainPage">
+            <Link to="/Parametres">
                 <button>
                     <BsFillGearFill style={{fontSize: '35px', color: `${gear}`}}/>
                 </button>

@@ -1,0 +1,18 @@
+.Parametres-deconnexion {
+    background-color: #FF0000;
+    border: 2px solid #B22222;
+    color: #f2e8cf;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.Parametres-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -22,12 +22,12 @@
     align-items: center;
     background: #A7C957;
     padding: .5vh 0 1vh 0;
-    > div{
-        width: 33%;
-        display: flex;
-        justify-content: center;
-    }
 }
+.recipe-infos-div{
+     width: 33%;
+     display: flex;
+     justify-content: center;
+ }
 .recipe-content{
     font-size-adjust: 2;
     width: 90vw;

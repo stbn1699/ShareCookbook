@@ -1,8 +1,9 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
-    host: '91.108.113.155',
+    host: 'localhost',
     database: 'postgres',
+    password: 'root',
     port: 5432,
 })
 
@@ -139,10 +140,34 @@ const userLikedPublication = (request, response) => {
     });
 }
 
+const getUserById = (request, response) => {
+    console.log(`getting user ${request.params.uuid}...`)
+
+    const uuid = request.params.uuid;
+    const query = 'SELECT * FROM accounts WHERE uuid = $1';
+
+    pool.query(query, [uuid], (error, results) => {
+        if (error) {
+            console.log("error while getting user")
+            console.log(error + "\n\n");
+            response.status(500).json({error: 'An error occurred while getting the user'});
+        } else {
+            if (results.rows.length > 0) {
+                console.log(`user ${results.rows[0].username} retrieved\n\n`)
+                response.status(200).json(results.rows[0]);
+            } else {
+                console.log("user not found\n\n")
+                response.status(404).json({error: 'User not found'});
+            }
+        }
+    });
+}
+
 module.exports = {
     checkUser,
     addUser,
     loginUser,
     toggleLike,
     userLikedPublication,
+    getUserById,
 }

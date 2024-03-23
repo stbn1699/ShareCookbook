@@ -72,9 +72,9 @@ function Recipe() {
                         {publication && publication.title}
                     </div>
                     <div className="recipe-infos josefin-slab">
-                        <div>{publication && publication.info_1} min</div>
-                        <div>{publication && publication.info_2} personnes</div>
-                        <div>{publication && likesCount} likes</div>
+                        <div className="recipe-infos-div">{publication && publication.info_1} min</div>
+                        <div className="recipe-infos-div">{publication && publication.info_2} personnes</div>
+                        <div className="recipe-infos-div">{publication && likesCount} likes</div>
                     </div>
                 </div>
 

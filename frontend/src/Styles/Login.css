@@ -1,4 +1,4 @@
-.login{
+.login {
     background: #f2e8cf;
     text-align: center;
     height: 100vh;
@@ -8,17 +8,20 @@
     justify-content: center;
     align-items: center;
 }
-.title{
+
+.title {
     font-size: 3em;
     color: #000;
     margin-bottom: 20vh;
 }
-.buttons-container{
+
+.buttons-container {
     margin-top: 20vh;
     display: flex;
     align-items: center;
 }
-.input{
+
+.input {
     background: #A7C957;
     border: 3px solid #6A994E;
     border-radius: 25px;
@@ -29,7 +32,8 @@
     font-size: 1.2em;
     font-weight: bold;
 }
-.buttons{
+
+.buttons {
     background: #6A994E;
     border-radius: 10px;
     height: 50px;
@@ -38,9 +42,32 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+
 .signin {
     border: 3px solid #386641;
 }
-.signup{
+
+.signup {
     border: 3px solid #927fbd;
+}
+
+.Login-rememberMe-box {
+    margin: 2vh 5vw 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Login-rememberMe-label {
+    display: flex;
+    justify-content: end;
+    font-weight: bold;
+}
+
+.Login-rememberMe-input {
+    background: #A7C957 !important;
+    border: 3px solid #6A994E !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    width: 10vw !important;
 }
