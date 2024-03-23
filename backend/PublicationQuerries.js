@@ -40,6 +40,7 @@ const getPublicationById = (request, response) => {
             console.log(error);
             response.status(500).json({error: 'An error occurred while getting the publication'});
         } else {
+            console.log(`getting publication ${results.rows[0].title}\n\n`)
             response.status(200).json(results.rows[0]);
         }
     });
@@ -66,6 +67,7 @@ const addRecipe = (request, response) => {
                     response.status(500).json({error: 'An error occurred while adding the recipe'});
                 } else {
                     const publicationUuid = results.rows[0].uuid;
+                    console.log(`recipe : ${results.rows[0].title}\n added by ${results.rows[0].author}\n\n`);
                     response.status(200).json({success: true, message: 'Recipe added', uuid: publicationUuid});
                 }
             });
