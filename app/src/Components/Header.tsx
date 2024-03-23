@@ -10,7 +10,7 @@ function Header(props: { headerStyle: string }) {
         case "recipe":
             return (
                 <div className="bottom-bar-box">
-                    <button className="goBack-button" onClick={() => {navigate(-1);}}>
+                    <button className="goBack-button" onClick={() => {navigate('/MainPage');}}>
                         <BsArrowLeftCircleFill style={{fontSize: '4vh', color: '#386641'}}/>
                     </button>
                 </div>
