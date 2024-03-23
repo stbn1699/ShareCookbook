@@ -23,3 +23,11 @@ function App() {
 }
 
 export default App;
+
+
+/*
+* TODO trucs a fix :
+* - l'ajout d'un nouvel ingrédient, il faudrait que ça focus l'input a chaque fois sinon relou
+* - les boutons de la nouvelle recette (ajouter et reset)
+* - passer tout en français
+* - mettre les infos de la prévisualisation MainPage en plus large pour accueillir 100-999 personnes*/
