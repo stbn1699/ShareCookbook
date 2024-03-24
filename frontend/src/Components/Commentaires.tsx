@@ -33,14 +33,24 @@ function Commentaires() {
             body: JSON.stringify(commentData),
         })
             .then(response => response.json())
-            .then(data => {
+            .then((data: any) => {
                 console.log('Success:', data);
                 setNewComment('');
-                window.location.reload();
+                fetchComments();
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+    };
+
+    const fetchComments = () => {
+        fetch(`${sessionStorage.getItem('apiUrl')}/publication/${uuid}/comments`)
+            .then(response => response.json())
+            .then(data => {
+                setCommentaires(data);
+                console.log(data)
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     useEffect(() => {
