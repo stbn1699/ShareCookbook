@@ -8,6 +8,7 @@ const pool = new Pool({
 
 const getPublications = (request, response) => {
 
+    console.log(new Date());
     console.log(`getting all publications...`)
 
     const query = `
@@ -31,6 +32,7 @@ const getPublications = (request, response) => {
 
 const getPublicationById = (request, response) => {
 
+    console.log(new Date());
     console.log(`getting publication ${request.params.id}...`)
 
     const id = request.params.id;
@@ -57,6 +59,7 @@ const getPublicationById = (request, response) => {
 const addRecipe = (request, response) => {
     const { title, uuid, info_1, info_2, content } = request.body;
 
+    console.log(new Date());
     console.log(`adding recipe ${title}...`)
 
     const getUsernameQuery = 'SELECT username FROM accounts WHERE uuid = $1';
@@ -94,6 +97,7 @@ const addRecipe = (request, response) => {
 const getCommentsByPublicationId = (request, response) => {
     const publicationUUID = request.params.uuid;
 
+    console.log(new Date());
     console.log(`getting comments for publication ${publicationUUID}...`)
 
     const query = `
@@ -118,6 +122,7 @@ const getCommentsByPublicationId = (request, response) => {
 const addComment = (request, response) => {
     const { userUUID, publicationUUID, content } = request.body;
 
+    console.log(new Date());
     console.log(`adding comment to publication ${publicationUUID}...`)
 
     const addCommentQuery = `
