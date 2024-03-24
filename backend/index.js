@@ -31,6 +31,7 @@ app.get('/publications/getPublicationById/:id', db.getPublicationById);
 app.get('/publication/:uuid/comments', db.getCommentsByPublicationId);
 app.post('/publication/addComment', db.addComment);
 app.get('/publication/getPublicationBySearch/:searchContent', db.searchRecipes);
+app.get('/publication/getPublicationsByUserId/:userId', db.getPublicationsByUserId);
 
 // user querries
 app.get('/user/check', userQuerries.checkUser);

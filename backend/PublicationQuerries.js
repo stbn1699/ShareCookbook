@@ -7,11 +7,11 @@ const pool = new Pool({
 })
 
 const getCurrentDateTime = require('./dateUtils');
+const {logInfo, logError} = require("./logger");
 
 const getPublications = (request, response) => {
 
-    console.log(getCurrentDateTime());
-    console.log(`getting all publications...`)
+    let method = `getPublications`
 
     const query = `
         SELECT publications.*, 
@@ -22,11 +22,10 @@ const getPublications = (request, response) => {
 
     pool.query(query, (error, results) => {
         if (error) {
-            console.log("error while getting publications")
-            console.log(error + "\n\n");
+            logError(method, `error : ` + error)
             response.status(500).json({error: 'An error occurred while getting the publications'});
         } else {
-            console.log("publications retrieved\n\n")
+            logInfo(method, `done`)
             response.status(200).json(results.rows);
         }
     });
@@ -34,8 +33,7 @@ const getPublications = (request, response) => {
 
 const getPublicationById = (request, response) => {
 
-    console.log(getCurrentDateTime());
-    console.log(`getting publication ${request.params.id}...`)
+    let method = `getPublicationById`
 
     const id = request.params.id;
     const query = `
@@ -48,11 +46,10 @@ const getPublicationById = (request, response) => {
 
     pool.query(query, [id], (error, results) => {
         if (error) {
-            console.log("error while getting publication")
-            console.log(error + "\n\n");
+            logError(method, `error : ` + error)
             response.status(500).json({error: 'An error occurred while getting the publication'});
         } else {
-            console.log(`publication ${results.rows[0].title} retrieved\n\n`)
+            logInfo(method, `done, puibliation : ${results.rows[0].title} retrieved`)
             response.status(200).json(results.rows[0]);
         }
     });
@@ -61,36 +58,34 @@ const getPublicationById = (request, response) => {
 const addRecipe = (request, response) => {
     const { title, uuid, info_1, info_2, content } = request.body;
 
-    console.log(getCurrentDateTime());
-    console.log(`adding recipe ${title}...`)
+    let method = `addRecipe recipe : ${title}`
 
     const getUsernameQuery = 'SELECT username FROM accounts WHERE uuid = $1';
 
     pool.query(getUsernameQuery, [uuid], (error, results) => {
         if (results.rows.length > 0) {
             const author = results.rows[0].username;
-
-            console.log(`user found : ${author}\n`)
-
             const addRecipeQuery = `
-                INSERT INTO publications (title, author, info_1, info_2, content)
-                VALUES ($1, $2, $3, $4, $5)
+                INSERT INTO publications (title, author, info_1, info_2, content, user_id)
+                VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING uuid
             `;
 
-            pool.query(addRecipeQuery, [title, author, info_1, info_2, content], (error, results) => {
+            const params = [title, author, info_1, info_2, content, uuid];
+            console.log(`Executing query: ${addRecipeQuery} with parameters: ${params}`);
+
+            pool.query(addRecipeQuery, params, (error, results) => {
                 if (error) {
-                    console.log("error while adding recipe")
-                    console.log(error + "\n\n");
+                    logError(method, `error : ` + error)
                     response.status(500).json({error: 'An error occurred while adding the recipe'});
                 } else {
                     const publicationUuid = results.rows[0].uuid;
-                    console.log(`recipe : ${results.rows[0].title}\n added by ${results.rows[0].author}\n\n`);
+                    logInfo(method, `done, publication : ${title} added`)
                     response.status(200).json({success: true, message: 'Recipe added', uuid: publicationUuid});
                 }
             });
         } else {
-            console.log("user not found\n\n")
+            logError(method, `error : User not found`)
             response.status(404).json({error: 'User not found'});
         }
     });
@@ -98,9 +93,8 @@ const addRecipe = (request, response) => {
 
 const getCommentsByPublicationId = (request, response) => {
     const publicationUUID = request.params.uuid;
-    
-    console.log(getCurrentDateTime());
-    console.log(`getting comments for publication ${publicationUUID}...`)
+
+    let method = `getCommentsByPublicationId publication : ${publicationUUID}`
 
     const query = `
         SELECT commentaires.date_publication, commentaires.contenu, commentaires.id_commentaire, accounts.username
@@ -111,11 +105,10 @@ const getCommentsByPublicationId = (request, response) => {
 
     pool.query(query, [publicationUUID], (error, results) => {
         if (error) {
-            console.log("error while getting comments")
-            console.log(error + "\n\n");
+            logError(method, `error : ` + error)
             response.status(500).json({error: 'An error occurred while getting the comments'});
         } else {
-            console.log("comments retrieved\n\n")
+            logInfo(method, `done`)
             response.status(200).json(results.rows);
         }
     });
@@ -124,8 +117,7 @@ const getCommentsByPublicationId = (request, response) => {
 const addComment = (request, response) => {
     const { userUUID, publicationUUID, content } = request.body;
 
-    console.log(getCurrentDateTime());
-    console.log(`adding comment to publication ${publicationUUID}...`)
+    let method = `addComment publication : ${publicationUUID}`
 
     const addCommentQuery = `
         INSERT INTO commentaires (id_utilisateur, id_publication, contenu)
@@ -134,11 +126,10 @@ const addComment = (request, response) => {
 
     pool.query(addCommentQuery, [userUUID, publicationUUID, content], (error, results) => {
         if (error) {
-            console.log("error while adding comment")
-            console.log(error + "\n\n");
+            logError(method, `error : ` + error)
             response.status(500).json({error: 'An error occurred while adding the comment'});
         } else {
-            console.log("comment added\n\n")
+            logInfo(method, `done`)
             response.status(200).json({success: true, message: 'Comment added'});
         }
     });
@@ -148,8 +139,7 @@ const addComment = (request, response) => {
 const searchRecipes = (request, response) => {
     const searchText = request.params.searchContent;
 
-    console.log(getCurrentDateTime());
-    console.log(`searching for recipes containing ${searchText}...`)
+    let method = `searchRecipes search : ${searchText}`
 
     const query = `
         SELECT *
@@ -158,17 +148,38 @@ const searchRecipes = (request, response) => {
 
     pool.query(query, [`%${searchText}%`], (error, results) => {
         if (error) {
-            console.log("error while searching for recipes")
-            console.log(error + "\n\n");
+            logError(method, `error : ` + error)
             response.status(500).json({error: 'An error occurred while searching for recipes'});
         } else {
-            console.log("recipes retrieved\n\n")
+            logInfo(method, `done`)
+            response.status(200).json(results.rows);
+        }
+    });
+}
+
+const getPublicationsByUserId = (request, response) => {
+    const userId = request.params.userId;
+
+    let method = `getPublicationsByUserId`
+
+    const query = `
+        SELECT *
+        FROM publications
+        WHERE user_id = $1`;
+
+    pool.query(query, [userId], (error, results) => {
+        if (error) {
+            logError(method, `error : ` + error)
+            response.status(500).json({error: 'An error occurred while getting publications for user'});
+        } else {
+            logInfo(method, `done`)
             response.status(200).json(results.rows);
         }
     });
 }
 
 module.exports = {
+    getPublicationsByUserId,
     searchRecipes,
     addComment,
     getPublications,

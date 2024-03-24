@@ -1,17 +1,28 @@
-.input-info-box {
+.Accounts-input-info-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 1.25vh;
     width: 100vw;
-    height: 80vh;
+    height: 20vh;
 }
-.input-info {
+.Accounts-input-info {
     margin-top : 1.25vh;
     display: flex;
     justify-content: start;
     align-items: center;
     width: 80vw;
     font-weight: bold;
+}
+.Accounts-title {
+    width: 90vw;
+    height: 5vh;
+    background-color: #A7C957;
+    margin: 3vh 5vw;
+    font-weight: bold;
+    font-size: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

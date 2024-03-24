@@ -11,7 +11,7 @@ function Header(props: { headerStyle: string }) {
             return (
                 <div className="bottom-bar-box">
                     <button className="goBack-button" onClick={() => {
-                        navigate('/MainPage');
+                        navigate(-1);
                     }}>
                         <BsArrowLeftCircleFill style={{fontSize: '4vh', color: '#386641'}}/>
                     </button>
