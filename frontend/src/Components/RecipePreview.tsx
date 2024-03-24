@@ -9,14 +9,14 @@ function RecipePreview(props: { fond: string; titre: string; temps: number; pers
 
                 </div>
                 <div className="fond-gradient">
-                    <div className="josefin-slab reciprev-column reciprev-info">
+                    <div className="josefin-slab reciprev-info">
                         - {props.temps} min
                         <br/>
                         - {props.personnes} personnes
                         <br/>
                         - {props.likes_count} likes
                     </div>
-                    <div className="josefin-slab reciprev-column reciprev-title">{props.titre}</div>
+                    <div className="josefin-slab reciprev-title">{props.titre}</div>
                 </div>
             </div>
         </div>

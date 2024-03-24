@@ -1,14 +1,16 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
-    host: '91.108.113.155',
+    host: 'localhost',
     database: 'postgres',
+    password: 'root',
     port: 5432,
 })
+const getCurrentDateTime = require('./dateUtils');
 
 const getPublications = (request, response) => {
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`getting all publications...`)
 
     const query = `
@@ -32,7 +34,7 @@ const getPublications = (request, response) => {
 
 const getPublicationById = (request, response) => {
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`getting publication ${request.params.id}...`)
 
     const id = request.params.id;
@@ -59,7 +61,7 @@ const getPublicationById = (request, response) => {
 const addRecipe = (request, response) => {
     const { title, uuid, info_1, info_2, content } = request.body;
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`adding recipe ${title}...`)
 
     const getUsernameQuery = 'SELECT username FROM accounts WHERE uuid = $1';
@@ -96,8 +98,8 @@ const addRecipe = (request, response) => {
 
 const getCommentsByPublicationId = (request, response) => {
     const publicationUUID = request.params.uuid;
-
-    console.log(new Date());
+    
+    console.log(getCurrentDateTime());
     console.log(`getting comments for publication ${publicationUUID}...`)
 
     const query = `
@@ -122,7 +124,7 @@ const getCommentsByPublicationId = (request, response) => {
 const addComment = (request, response) => {
     const { userUUID, publicationUUID, content } = request.body;
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`adding comment to publication ${publicationUUID}...`)
 
     const addCommentQuery = `
@@ -143,7 +145,31 @@ const addComment = (request, response) => {
 
 }
 
+const searchRecipes = (request, response) => {
+    const searchText = request.params.searchContent;
+
+    console.log(getCurrentDateTime());
+    console.log(`searching for recipes containing ${searchText}...`)
+
+    const query = `
+        SELECT *
+        FROM publications
+        WHERE title ILIKE $1`;
+
+    pool.query(query, [`%${searchText}%`], (error, results) => {
+        if (error) {
+            console.log("error while searching for recipes")
+            console.log(error + "\n\n");
+            response.status(500).json({error: 'An error occurred while searching for recipes'});
+        } else {
+            console.log("recipes retrieved\n\n")
+            response.status(200).json(results.rows);
+        }
+    });
+}
+
 module.exports = {
+    searchRecipes,
     addComment,
     getPublications,
     getCommentsByPublicationId,

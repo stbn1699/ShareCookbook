@@ -7,7 +7,7 @@ const db = require('./PublicationQuerries')
 const userQuerries = require('./UserQuerries')
 
 const corsOptions = {
-    origin: ['http://sharecookbook.ebasson.fr', 'http://localhost:3000'],
+    origin: ['http://sharecookbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
 };
@@ -30,6 +30,7 @@ app.get('/publications/getAll', db.getPublications);
 app.get('/publications/getPublicationById/:id', db.getPublicationById);
 app.get('/publication/:uuid/comments', db.getCommentsByPublicationId);
 app.post('/publication/addComment', db.addComment);
+app.get('/publication/getPublicationBySearch/:searchContent', db.searchRecipes);
 
 // user querries
 app.get('/user/check', userQuerries.checkUser);

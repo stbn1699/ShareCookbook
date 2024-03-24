@@ -31,6 +31,18 @@ function Header(props: { headerStyle: string }) {
                     <div className="header-cale"></div>
                 </div>
             );
+        case "SearchRecipe":
+            return (
+                <div className="bottom-bar-box">
+                    <button className="goBack-button" onClick={() => {
+                        navigate(-1);
+                    }}>
+                        <BsArrowLeftCircleFill style={{fontSize: '4vh', color: '#386641'}}/>
+                    </button>
+                    <div className="header-title josefin-slab">Recherche</div>
+                    <div className="header-cale"></div>
+                </div>
+            );
         case "NewRecipe":
             return (
                 <div className="bottom-bar-box">

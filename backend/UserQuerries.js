@@ -1,14 +1,16 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
-    host: '91.108.113.155',
+    host: 'localhost',
     database: 'postgres',
+    password: 'root',
     port: 5432,
 })
+const getCurrentDateTime = require('./dateUtils');
 
 const checkUser = (request, response) => {
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`checking if ${request.query.username} or ${request.query.email} exists...`)
 
     const {username, email} = request.query;
@@ -32,7 +34,7 @@ const checkUser = (request, response) => {
 
 const addUser = (request, response) => {
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`adding user ${request.body.username}...`)
 
     const {username, email, fullName, password} = request.body;
@@ -53,7 +55,7 @@ const addUser = (request, response) => {
 const loginUser = (request, response) => {
     const query = `SELECT * FROM accounts WHERE username = '${request.body.username}'`;
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`user ${request.body.username} is trying to log in...`)
 
     pool.query(query, (error, results) => {
@@ -80,7 +82,7 @@ const loginUser = (request, response) => {
 const toggleLike = (request, response) => {
     const { userUUID, publicationUUID } = request.body;
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`user ${userUUID} is trying to like/unlike publication ${publicationUUID}...`)
 
     const checkQuery = 'SELECT * FROM publication_likes WHERE user_id = $1 AND publication_id = $2';
@@ -124,7 +126,7 @@ const toggleLike = (request, response) => {
 const userLikedPublication = (request, response) => {
     const { userId, publicationId } = request.body;
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`checking if user ${userId} liked publication ${publicationId}...`)
 
     const checkQuery = 'SELECT * FROM publication_likes WHERE user_id = $1 AND publication_id = $2';
@@ -148,7 +150,7 @@ const userLikedPublication = (request, response) => {
 
 const getUserById = (request, response) => {
 
-    console.log(new Date());
+    console.log(getCurrentDateTime());
     console.log(`getting user ${request.params.uuid}...`)
 
     const uuid = request.params.uuid;

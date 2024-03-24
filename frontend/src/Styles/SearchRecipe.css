@@ -1,0 +1,31 @@
+.SearchRecipe-search-bar {
+    position: sticky;
+    bottom: 0;
+    background: #A7C957;
+    padding: .5vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.SearchRecipe-search-input {
+    background-color: #f2e8cf;
+    width: 70vw;
+    height: 6vh;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 0 3vw;
+}
+
+.SearchRecipe-search-button {
+    margin: 0 3vw;
+}
+.SearchRecipe-errorText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

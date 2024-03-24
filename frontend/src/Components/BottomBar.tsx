@@ -42,7 +42,7 @@ function BottomBar(props: { activePage: string }) {
                 </button>
             </Link>
 
-            <Link to="/MainPage">
+            <Link to="/SearchRecipe">
                 <button>
                     <BsSearch style={{fontSize: '35px', color: `${search}`}}/>
                 </button>

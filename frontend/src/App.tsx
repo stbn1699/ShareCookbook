@@ -9,6 +9,7 @@ import NewRecipe from "./Components/NewRecipe";
 import Parametres from "./Components/Parametres";
 import Account from "./Components/Account";
 import Commentaires from "./Components/Commentaires";
+import SearchRecipe from "./Components/SearchRecipe";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/Parametres" element={<Parametres/>}/>
                 <Route path="/Account" element={<Account/>}/>
                 <Route path="/Commentaires/:uuid" element={<Commentaires/>}/>
+                <Route path="/SearchRecipe" element={<SearchRecipe/>}/>
             </Routes>
         </Router>
     );
