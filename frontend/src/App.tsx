@@ -8,6 +8,7 @@ import SignUp from "./Components/SignUp";
 import NewRecipe from "./Components/NewRecipe";
 import Parametres from "./Components/Parametres";
 import Account from "./Components/Account";
+import Commentaires from "./Components/Commentaires";
 
 function App() {
 
@@ -20,8 +21,9 @@ function App() {
                 <Route path="/NewRecipe" element={<NewRecipe/>}/>
                 <Route path="/SignUp" element={<SignUp/>}/>
                 <Route path="*" element={<Login/>}/>
-                <Route path="Parametres" element={<Parametres/>}/>
-                <Route path="Account" element={<Account/>}/>
+                <Route path="/Parametres" element={<Parametres/>}/>
+                <Route path="/Account" element={<Account/>}/>
+                <Route path="/Commentaires/:uuid" element={<Commentaires/>}/>
             </Routes>
         </Router>
     );

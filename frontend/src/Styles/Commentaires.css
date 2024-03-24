@@ -1,0 +1,69 @@
+.application-page-content-recipe {
+    justify-content: start;
+    font-weight: bold;
+}
+
+.Commentaires-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 90vw;
+    margin: 0 5vw;
+    height: 100%;
+    overflow: scroll;
+}
+
+.Commentaires-footer {
+    position: sticky;
+    bottom: 0;
+    background: #A7C957;
+    padding: .5vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.Commentaires-empty {
+    font-weight: bold;
+}
+
+.Commentaires-footer-input {
+    background-color: #f2e8cf;
+    width: 70vw;
+    height: 6vh;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 0 3vw;
+}
+
+.Commentaires-add-button {
+    margin: 0 3vw;
+}
+
+.Commentaires-commentaire-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 80vw;
+    padding: 1vh;
+    border: 1px solid #6A994E;
+    border-radius: 10px;
+    margin: 3vh 0 0 0;
+}
+
+.Commentaires-commentaire-top {
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    margin: 0 5vw;
+    padding: 1vh 0;
+    border-bottom: 1px solid #6A994E;
+}
+.Commentaires-Commentaire-content{
+    padding: 2vh;
+}

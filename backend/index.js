@@ -28,6 +28,8 @@ app.get('/', (request, response) => {
 app.post('/publications/add', db.addRecipe);
 app.get('/publications/getAll', db.getPublications);
 app.get('/publications/getPublicationById/:id', db.getPublicationById);
+app.get('/publication/:uuid/comments', db.getCommentsByPublicationId);
+app.post('/publication/addComment', db.addComment);
 
 // user querries
 app.get('/user/check', userQuerries.checkUser);

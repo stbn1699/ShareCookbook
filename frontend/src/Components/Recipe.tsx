@@ -4,7 +4,7 @@ import '../Styles/MainPage.css';
 import '../Styles/Main.css';
 import '../Styles/Recipe.css';
 import Header from "./Header";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {BsBookmark, BsChatLeftText, BsHeart, BsHeartFill} from "react-icons/bs";
@@ -64,7 +64,7 @@ function Recipe() {
     return (
         <div className="application-page">
             <div className="application-header">
-                <Header headerStyle="recipe"/>
+                <Header headerStyle="Recipe"/>
             </div>
             <div className="application-page-content application-page-content-recipe">
                 <div className="recipe-header">
@@ -91,7 +91,9 @@ function Recipe() {
                             <BsHeartFill onClick={toggleLike} style={{fontSize: '1.5rem', color: '#f2e8cf'}}/> :
                             <BsHeart onClick={toggleLike} style={{fontSize: '1.5rem', color: '#f2e8cf'}}/>
                         }
-                        <BsChatLeftText style={{fontSize: '1.5rem', color: '#f2e8cf'}}/>
+                        <Link to={`/Commentaires/${uuid}`}>
+                            <BsChatLeftText style={{fontSize: '1.5rem', color: '#f2e8cf'}}/>
+                        </Link>
                         <BsBookmark style={{fontSize: '1.5rem', color: '#f2e8cf'}}/>
                     </div>
                 </div>

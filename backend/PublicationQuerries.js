@@ -91,8 +91,57 @@ const addRecipe = (request, response) => {
     });
 }
 
+const getCommentsByPublicationId = (request, response) => {
+    const publicationUUID = request.params.uuid;
+
+    console.log(`getting comments for publication ${publicationUUID}...`)
+
+    const query = `
+        SELECT commentaires.date_publication, commentaires.contenu, commentaires.id_commentaire, accounts.username
+        FROM commentaires
+        INNER JOIN accounts ON commentaires.id_utilisateur = accounts.uuid
+        WHERE commentaires.id_publication = $1
+        ORDER BY commentaires.date_publication ASC`;
+
+    pool.query(query, [publicationUUID], (error, results) => {
+        if (error) {
+            console.log("error while getting comments")
+            console.log(error + "\n\n");
+            response.status(500).json({error: 'An error occurred while getting the comments'});
+        } else {
+            console.log("comments retrieved\n\n")
+            response.status(200).json(results.rows);
+        }
+    });
+}
+
+const addComment = (request, response) => {
+    const { userUUID, publicationUUID, content } = request.body;
+
+    console.log(`adding comment to publication ${publicationUUID}...`)
+
+    const addCommentQuery = `
+        INSERT INTO commentaires (id_utilisateur, id_publication, contenu)
+        VALUES ($1, $2, $3)
+    `;
+
+    pool.query(addCommentQuery, [userUUID, publicationUUID, content], (error, results) => {
+        if (error) {
+            console.log("error while adding comment")
+            console.log(error + "\n\n");
+            response.status(500).json({error: 'An error occurred while adding the comment'});
+        } else {
+            console.log("comment added\n\n")
+            response.status(200).json({success: true, message: 'Comment added'});
+        }
+    });
+
+}
+
 module.exports = {
+    addComment,
     getPublications,
+    getCommentsByPublicationId,
     getPublicationById,
     addRecipe,
 }
