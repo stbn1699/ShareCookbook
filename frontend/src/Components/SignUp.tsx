@@ -15,6 +15,34 @@ function SignUp(){
         const confirmPassword: string = (document.getElementById('confirmPassword') as HTMLInputElement).value;
         const errorDiv = document.getElementById('error');
 
+        if (username.length > 20) {
+            if (errorDiv){
+                errorDiv.innerText = 'Le nom d\'utilisateur ne doit pas dépasser 20 caractères!';
+            }
+            return;
+        }
+
+        if (email.length > 100) {
+            if (errorDiv){
+                errorDiv.innerText = 'L\'email ne doit pas dépasser 100 caractères!';
+            }
+            return;
+        }
+
+        if (fullName.length > 100) {
+            if (errorDiv){
+                errorDiv.innerText = 'Le nom complet ne doit pas dépasser 100 caractères!';
+            }
+            return;
+        }
+
+        if (password.length > 255) {
+            if (errorDiv){
+                errorDiv.innerText = 'Le mot de passe ne doit pas dépasser 255 caractères!';
+            }
+            return;
+        }
+
         if (password === confirmPassword){
             const response = await fetch(
                 `${sessionStorage.getItem('apiUrl')}/user/check?username=${username}&email=${email}`

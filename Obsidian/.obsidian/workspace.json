@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Phase de conception/2.2 Architecture.md",
+                "file": "Notes/TODO.md",
                 "mode": "source",
                 "source": true
               }
@@ -45,7 +45,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Phase de conception/2.2 Architecture.md",
+                "file": "Notes/TODO.md",
                 "mode": "preview",
                 "source": true
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2. Phase de conception/2.2 Architecture.md",
+                "file": "Notes/TODO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2. Phase de conception/2.2 Architecture.md",
+                "file": "Notes/TODO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2. Phase de conception/2.2 Architecture.md"
+                "file": "Notes/TODO.md"
               }
             }
           }
@@ -181,8 +181,8 @@
   },
   "active": "7c0b9aed3dc1bae7",
   "lastOpenFiles": [
-    "Notes/TODO.md",
     "2. Phase de conception/2.2 Architecture.md",
+    "Notes/TODO.md",
     "1. Planification et Recherche/1.3 Cahier des charges.md",
     "2. Phase de conception/2.1 UI-UX.md",
     "0. Introduction/0.2 Gantt.md",

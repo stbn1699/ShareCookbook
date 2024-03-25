@@ -28,8 +28,8 @@ export function MainPage() {
                     <Link to={`/Recipe/${publication.uuid}`}>
                         <RecipePreview fond="01"
                                        titre={publication.title}
-                                       temps={publication.info_1}
-                                       personnes={publication.info_2}
+                                       temps={publication.time_to_cook}
+                                       personnes={publication.n_personnes}
                                        likes_count={publication.likes_count}/>
                     </Link>
                 ))}

@@ -74,8 +74,8 @@ function NewRecipe() {
             body: JSON.stringify({
                 "title": title,
                 "uuid": userUUID,
-                "info_1": prepTime,
-                "info_2": numPeople,
+                "time_to_cook": prepTime,
+                "n_personnes": numPeople,
                 "content":
                     `## Ingrédients\n\n` +
                     `${ingredients.map(ingredient => `- ${ingredient}`).join('\n') || "∅"}\n\n` +

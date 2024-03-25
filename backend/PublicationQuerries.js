@@ -1,8 +1,9 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
-    host: '91.108.113.155',
+    host: 'localhost',
     database: 'postgres',
+    password: 'root',
     port: 5432,
 })
 
@@ -18,7 +19,8 @@ const getPublications = (request, response) => {
                (SELECT COUNT(*) 
                 FROM publication_likes 
                 WHERE publication_id = publications.uuid) AS likes_count
-        FROM publications`;
+        FROM publications
+        ORDER BY publication_date DESC`;
 
     pool.query(query, (error, results) => {
         if (error) {
@@ -56,22 +58,22 @@ const getPublicationById = (request, response) => {
 }
 
 const addRecipe = (request, response) => {
-    const { title, uuid, info_1, info_2, content } = request.body;
+    const { title, uuid, time_to_cook, n_personnes, content } = request.body;
 
     let method = `addRecipe recipe : ${title}`
 
-    const getUsernameQuery = 'SELECT username FROM accounts WHERE uuid = $1';
+    const getUsernameQuery = 'SELECT username FROM users WHERE uuid = $1';
 
     pool.query(getUsernameQuery, [uuid], (error, results) => {
         if (results.rows.length > 0) {
             const author = results.rows[0].username;
             const addRecipeQuery = `
-                INSERT INTO publications (title, author, info_1, info_2, content, user_id)
+                INSERT INTO publications (title, author, time_to_cook, n_personnes, content, user_id)
                 VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING uuid
             `;
 
-            const params = [title, author, info_1, info_2, content, uuid];
+            const params = [title, author, time_to_cook, n_personnes, content, uuid];
             console.log(`Executing query: ${addRecipeQuery} with parameters: ${params}`);
 
             pool.query(addRecipeQuery, params, (error, results) => {
@@ -97,11 +99,11 @@ const getCommentsByPublicationId = (request, response) => {
     let method = `getCommentsByPublicationId publication : ${publicationUUID}`
 
     const query = `
-        SELECT commentaires.date_publication, commentaires.contenu, commentaires.id_commentaire, accounts.username
-        FROM commentaires
-        INNER JOIN accounts ON commentaires.id_utilisateur = accounts.uuid
-        WHERE commentaires.id_publication = $1
-        ORDER BY commentaires.date_publication ASC`;
+        SELECT comments.date_publication, comments.contenu, comments.uuid, users.username
+        FROM comments
+        INNER JOIN users ON comments.id_utilisateur = users.uuid
+        WHERE comments.id_publication = $1
+        ORDER BY comments.date_publication ASC`;
 
     pool.query(query, [publicationUUID], (error, results) => {
         if (error) {
@@ -120,7 +122,7 @@ const addComment = (request, response) => {
     let method = `addComment publication : ${publicationUUID}`
 
     const addCommentQuery = `
-        INSERT INTO commentaires (id_utilisateur, id_publication, contenu)
+        INSERT INTO comments (id_utilisateur, id_publication, contenu)
         VALUES ($1, $2, $3)
     `;
 
@@ -165,7 +167,8 @@ const getPublicationsByUserId = (request, response) => {
     const query = `
         SELECT *
         FROM publications
-        WHERE user_id = $1`;
+        WHERE user_id = $1
+        ORDER BY publication_date DESC`;
 
     pool.query(query, [userId], (error, results) => {
         if (error) {

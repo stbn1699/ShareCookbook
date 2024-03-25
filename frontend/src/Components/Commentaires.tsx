@@ -8,7 +8,7 @@ import {BsBookmark, BsChatLeftText, BsHeart, BsHeartFill, BsPaperclip, BsSend} f
 function Commentaires() {
 
     const userUUID = localStorage.getItem('userUUID') || sessionStorage.getItem('userUUID');
-    const [commentaires, setCommentaires] = useState([]);
+    const [comments, setComments] = useState([]);
     const [likesCount, setLikesCount] = useState(0);
     const [publication, setPublication] = useState<any | null>(null);
     const { uuid } = useParams();
@@ -47,7 +47,7 @@ function Commentaires() {
         fetch(`${sessionStorage.getItem('apiUrl')}/publication/${uuid}/comments`)
             .then(response => response.json())
             .then(data => {
-                setCommentaires(data);
+                setComments(data);
                 console.log(data)
             })
             .catch(error => console.error('Error:', error));
@@ -72,7 +72,7 @@ function Commentaires() {
         fetch(`${sessionStorage.getItem('apiUrl')}/publication/${uuid}/comments`)
             .then(response => response.json())
             .then(data => {
-                setCommentaires(data);
+                setComments(data);
                 console.log(data)
             })
             .catch(error => console.error('Error:', error));
@@ -89,17 +89,17 @@ function Commentaires() {
                         {publication && publication.title}
                     </div>
                     <div className="recipe-infos josefin-slab">
-                        <div className="recipe-infos-div">{publication && publication.info_1} min</div>
-                        <div className="recipe-infos-div">{publication && publication.info_2} personnes</div>
+                        <div className="recipe-infos-div">{publication && publication.time_to_cook} min</div>
+                        <div className="recipe-infos-div">{publication && publication.n_personnes} personnes</div>
                         <div className="recipe-infos-div">{publication && likesCount} likes</div>
                     </div>
                 </div>
 
                 <div className="Commentaires-box">
-                    {commentaires.length === 0 ? (
+                    {comments.length === 0 ? (
                         <div className="Commentaires-empty josefin-slab">Pas encore de<br/>commentaires</div>
                     ) : (
-                        commentaires.map((commentaire: any) => {
+                        comments.map((commentaire: any) => {
                             return (
                                 <div className="Commentaires-commentaire-box">
                                     <div className="Commentaires-commentaire-top">

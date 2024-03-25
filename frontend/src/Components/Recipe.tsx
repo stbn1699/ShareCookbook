@@ -72,8 +72,8 @@ function Recipe() {
                         {publication && publication.title}
                     </div>
                     <div className="recipe-infos josefin-slab">
-                        <div className="recipe-infos-div">{publication && publication.info_1} min</div>
-                        <div className="recipe-infos-div">{publication && publication.info_2} personnes</div>
+                        <div className="recipe-infos-div">{publication && publication.time_to_cook} min</div>
+                        <div className="recipe-infos-div">{publication && publication.n_personnes} personnes</div>
                         <div className="recipe-infos-div">{publication && likesCount} likes</div>
                     </div>
                 </div>
