@@ -4,55 +4,96 @@
     "type": "split",
     "children": [
       {
-        "id": "2fff6fbd8163cb70",
-        "type": "tabs",
+        "id": "f8b069481938d97c",
+        "type": "split",
         "children": [
           {
-            "id": "db6ac781ab40438c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/TODO.md",
-                "mode": "source",
-                "source": true
+            "id": "2fff6fbd8163cb70",
+            "type": "tabs",
+            "dimension": 50,
+            "children": [
+              {
+                "id": "db6ac781ab40438c",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "3. Phase de développement/3.4 Hébergement.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "db585431d614f5a2"
               }
-            }
+            ]
           },
           {
-            "id": "7c0b9aed3dc1bae7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1. Planification et Recherche/1.2 Etude marché et concurrence.md",
-                "mode": "source",
-                "source": true
+            "id": "fc5b20bcf06e0b71",
+            "type": "tabs",
+            "dimension": 50,
+            "children": [
+              {
+                "id": "7c0b9aed3dc1bae7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "2. Phase de conception/2.2 Architecture.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "87ff77e1ceb678f5"
               }
-            },
-            "group": "87ff77e1ceb678f5"
+            ]
           }
         ],
-        "currentTab": 1
+        "direction": "horizontal"
       },
       {
-        "id": "d3464ab9dbccce47",
-        "type": "tabs",
+        "id": "ea01b9a594c4862b",
+        "type": "split",
         "children": [
           {
-            "id": "5ae55e7e5e5f423e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1. Planification et Recherche/1.2 Etude marché et concurrence.md",
-                "mode": "preview",
-                "source": true
+            "id": "6a79e7500b23a525",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "488c7cd2a316e8d9",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "3. Phase de développement/3.4 Hébergement.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                },
+                "group": "db585431d614f5a2"
               }
-            },
-            "group": "87ff77e1ceb678f5"
+            ]
+          },
+          {
+            "id": "d3464ab9dbccce47",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "5ae55e7e5e5f423e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "2. Phase de conception/2.2 Architecture.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                },
+                "group": "87ff77e1ceb678f5"
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -118,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1. Planification et Recherche/1.2 Etude marché et concurrence.md",
+                "file": "3. Phase de développement/3.4 Hébergement.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1. Planification et Recherche/1.2 Etude marché et concurrence.md",
+                "file": "3. Phase de développement/3.4 Hébergement.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +199,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1. Planification et Recherche/1.2 Etude marché et concurrence.md"
+                "file": "3. Phase de développement/3.4 Hébergement.md"
               }
             }
           }
@@ -179,20 +220,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7c0b9aed3dc1bae7",
+  "active": "488c7cd2a316e8d9",
   "lastOpenFiles": [
+    "0. Introduction/0.2 Gantt.md",
+    "Notes/Database.md",
+    "Notes/TODO.md",
+    "3. Phase de développement/3.4 Hébergement.md",
     "2. Phase de conception/2.2 Architecture.md",
+    "3. Phase de développement/3.3 Base de données.md",
+    "3. Phase de développement/3.2 Backend.md",
+    "3. Phase de développement/3.1 Frontend.md",
+    "1. Planification et Recherche/1.1 Fonctionnalités.md",
+    "Images/Gantt-V1.png.0.pdnSave",
+    "3. Phase de développement",
+    "1. Planification et Recherche/1.3 Cahier des charges.md",
     "2. Phase de conception/2.1 UI-UX.md",
     "0. Introduction/0.1 Introduction du projet.md",
-    "0. Introduction/0.2 Gantt.md",
     "1. Planification et Recherche/1.2 Etude marché et concurrence.md",
-    "1. Planification et Recherche/1.1 Fonctionnalités.md",
-    "Notes/TODO.md",
-    "1. Planification et Recherche/1.3 Cahier des charges.md",
-    "Notes/Database.md",
     "Images/Pasted image 20240211010423.png",
     "Images/Gantt-V1.png",
-    "Images/Gantt-V1.png.0.pdnSave",
     "Images/Gantt-V1.png.crdownload",
     "Images",
     "2. Phase de conception",
@@ -209,7 +255,6 @@
     "Figma/maison.png",
     "Figma/utilisateur.png",
     "Figma/plus.png",
-    "Figma/parametres-cog.png",
-    "Figma/Untitled (1).fig"
+    "Figma/parametres-cog.png"
   ]
 }
