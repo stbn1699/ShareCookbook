@@ -1,5 +1,7 @@
 ## overall
 
+metre que le temps est en minutes dans la création de la recette
+
 no 404 on reload
 
 mettre des logs un peu plus verbeux notamment sur le username
