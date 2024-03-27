@@ -53,7 +53,7 @@ const addUser = (request, response) => {
                     logError(method, `error while adding the user : ` + error)
                     response.status(500).json({error: 'An error occurred while adding the user'});
                 } else {
-                    logInfo(method, `user added`)
+                    logInfo(method, `user ${request.body.username} added`)
                     response.status(201).json({sucess: `User added`});
                 }
             });
@@ -79,7 +79,7 @@ const loginUser = (request, response) => {
                         response.status(500).json({error: 'An error occurred while comparing the passwords'});
                     } else {
                         if (result) {
-                            logInfo(method, `user logged in`)
+                            logInfo(method, `user ${request.body.username} logged in`)
                             response.status(200).json({success: true, uuid: results.rows[0].uuid});
                         } else {
                             logError(method, `wrong password`)
