@@ -141,8 +141,13 @@ function NewRecipe() {
                                 </div>
                                 <div className="NewRecipe-infos-input-inputs">
                                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
-                                    <input type="number" value={prepTime}
-                                           onChange={(e) => setPrepTime(e.target.value)}/>
+                                    <div className="NewRecipe-infos-input-inputs-time-box">
+                                        <input type="number" value={prepTime} className="NewRecipe-infos-input-inputs-time-input"
+                                               onChange={(e) => setPrepTime(e.target.value)}/>
+                                        <div className="NewRecipe-infos-input-inputs-time-label">
+                                            Min.
+                                        </div>
+                                    </div>
                                     <input type="number" value={numPeople}
                                            onChange={(e) => setNumPeople(e.target.value)}/>
                                 </div>

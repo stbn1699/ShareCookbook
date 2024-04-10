@@ -189,3 +189,7 @@ input {
 .reset {
     border: 3px solid #927fbd;
 }
+.NewRecipe-infos-input-inputs-time-input{
+    width: 30vw;
+    margin-right: 3vw;
+}
