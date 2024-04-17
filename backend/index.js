@@ -56,7 +56,3 @@ app.post('/user/login', userQuerries.loginUser);
 app.get('/user/getById/:uuid', userQuerries.getUserById);
 app.post('/user/toggleLike', userQuerries.toggleLike);
 app.post('/user/haveUserLiked', userQuerries.userLikedPublication);
-
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
-})
