@@ -11,8 +11,8 @@ const fs = require('fs');
 
 // ...
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/www.ebasson.fr/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/www.ebasson.fr/fullchain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/sharecookbook.ebasson.fr/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/sharecookbook.ebasson.fr/fullchain.pem', 'utf8');
 
 const credentials = { key: privateKey, cert: certificate };
 
@@ -23,7 +23,7 @@ httpsServer.listen(port, () => {
 });
 
 const corsOptions = {
-    origin: ['https://www.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
+    origin: ['https://sharecokbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
 };
