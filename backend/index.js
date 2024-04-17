@@ -7,7 +7,7 @@ const db = require('./PublicationQuerries')
 const userQuerries = require('./UserQuerries')
 
 const corsOptions = {
-    origin: ['https://sharecookbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
+    origin: ['https://sharecookbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002', 'https://91.108.113.155:3001'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
 };
