@@ -8,7 +8,7 @@ function Login() {
 
 
     useEffect(() => {
-        sessionStorage.setItem('apiUrl', 'https://91.108.113.155:3001');
+        sessionStorage.setItem('apiUrl', 'https://www.ebasson.fr:3001');
         const userUUID = localStorage.getItem('userUUID');
         if (userUUID) {
             navigate('/MainPage');

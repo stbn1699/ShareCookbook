@@ -23,7 +23,7 @@ httpsServer.listen(port, () => {
 });
 
 const corsOptions = {
-    origin: ['https://sharecookbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002', 'https://91.108.113.155:3001'],
+    origin: ['https://www.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
 };
