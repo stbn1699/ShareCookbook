@@ -6,8 +6,24 @@ const port = 3001
 const db = require('./PublicationQuerries')
 const userQuerries = require('./UserQuerries')
 
+const https = require('https');
+const fs = require('fs');
+
+// ...
+
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/sharecookbook.ebasson.fr/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/sharecookbook.ebasson.fr/fullchain.pem', 'utf8');
+
+const credentials = { key: privateKey, cert: certificate };
+
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(port, () => {
+    console.log(`App running on port ${port}.`)
+});
+
 const corsOptions = {
-    origin: ['http://sharecookbook.ebasson.fr', 'http://localhost:3000', 'http://localhost:3002'],
+    origin: ['https://sharecookbook.ebasson.fr', 'https://sharecookbook.ebasson.fr:3001', 'http://localhost:3000', 'http://localhost:3002'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
 };
@@ -40,7 +56,3 @@ app.post('/user/login', userQuerries.loginUser);
 app.get('/user/getById/:uuid', userQuerries.getUserById);
 app.post('/user/toggleLike', userQuerries.toggleLike);
 app.post('/user/haveUserLiked', userQuerries.userLikedPublication);
-
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
-})
